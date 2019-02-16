@@ -1,6 +1,8 @@
 package net.codebreeze.formatted;
 
+import java.nio.channels.IllegalBlockingModeException;
 import java.util.ArrayList;
+import java.util.IllegalFormatException;
 import java.util.List;
 import java.util.concurrent.Future;
 
@@ -30,5 +32,19 @@ public class App {
             System.out.println("ok, we're done");
         }
         return null;
+    }
+
+    public static void exceptionsAndTryCatches() throws IllegalAccessException, IllegalAccessError,
+            IllegalArgumentException, IllegalStateException, NullPointerException {
+        try {
+            throw new IllegalAccessException(
+                    "this is a very long argument to a constructor, so how would it format it, let's see"
+            );
+        } catch (
+                IllegalAccessError | IllegalAccessException | IllegalArgumentException | IllegalStateException
+                | NullPointerException e
+        ) {
+            throw e;
+        }
     }
 }
